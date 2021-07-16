@@ -1,6 +1,6 @@
 ---
-#NOTE: adjust nginx_revproxy to reflect your choice of role name
-src_folder: roles/nginx_revproxy/files/certs
+#NOTE: adjust revproxy to reflect your choice of role name; if something other than nginx is used, override it too
+src_folder: roles/revproxy/files/certs
 dest_folder: /etc/ssl/nginx/certs
 cert_info:
   - filename: fullchain.pem
