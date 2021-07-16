@@ -1,2 +1,6 @@
 ---
-# handlers file for certupdate_nginx
+- name: restart nginx
+  ansible.builtin.service:
+    name: nginx
+    state: restarted
+...
