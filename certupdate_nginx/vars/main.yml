@@ -1,7 +1,9 @@
 ---
-#NOTE: set to reflect your choice of role name/; if something other than nginx is used, override it too
-certs_local_folder: roles/revproxy/files/certs
-certs_target_folder: /etc/ssl/nginx/certs
+#NOTE: set certs_local/remote_* values from the command line or in your playbook with the role; cert_info reflects
+# nxinx and LetsEncrypt conventions
+#
+#certs_local_prefix:
+#certs_target_folder: /etc/ssl/nginx/certs
 cert_info:
   - filename: fullchain.pem
     mode: '0640'

@@ -28,8 +28,11 @@ Including an example of how to use your role (for instance, with variables passe
 ```
     - hosts: servers
       roles:
-         - { role: certupdate_nginx, src_folder: (your_local_dir), cert_info: (dict with name/mode info) }
-
+         - role: certupdate_nginx
+         - certs_local_prefix: (your role's files/certs location; one or more fqdn-named subfolders will live there)
+         - certs_target_folder: (remote certs folder)
+         # cert_info: (dict with name/mode info if overriding LetsEncrypt/nginx conventions)
+```
 License
 -------
 

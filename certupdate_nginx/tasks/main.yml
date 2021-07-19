@@ -13,7 +13,7 @@
 
 - name: copy certs to target
   ansible.builtin.copy:
-    src: "{{ certs_local_folder }}/{{ server_fqdn }}/{{ item.filename }}"
+    src: "{{ certs_local_prefix }}/{{ server_fqdn }}/{{ item.filename }}"
     dest: "{{ certs_target_folder }}/{{ item.filename }}"
     mode: "{{ item.mode }}"
   loop: "{{ cert_info }}"
