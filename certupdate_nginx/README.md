@@ -12,8 +12,8 @@ Role Variables
 --------------
 
 Values you can override:
-* `src_folder`: where your local certs are kept
-* `dest_folder`: where results will live; your nginx site config must point to them
+* `certs_local_folder`: where your local certs are kept
+* `certs_target_folder`: where results will live; your nginx site config must point to them
 * `cert_info`: dictionary of names and quoted (octal) modes
 
 Dependencies

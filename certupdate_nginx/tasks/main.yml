@@ -5,8 +5,7 @@
 # a separate role can then put the ssl-enabled template on the target, check syntax, and restart nginx
 - name: create ssl certs folder if not found
   ansible.builtin.file:
-   #path: /etc/ssl/nginx/certs
-    path: "{{ dest_folder }}"
+    path: "{{ certs_target_folder }}"
     state: directory
     mode: '0750'
   tags:
@@ -14,17 +13,11 @@
 
 - name: copy certs to target
   ansible.builtin.copy:
-   #src: "roles/nginx/files/certs/{{ server_fqdn }}/{{ item.filename }}"
-   #dest: "/etc/ssl/nginx/certs/{{ item.filename }}"
-    src: "{{ src_folder }}/{{ server_fqdn }}/{{ item.filename }}"
-    dest: "{{ dest_folder }}/{{ item.filename }}"
+    src: "{{ certs_local_folder }}/{{ server_fqdn }}/{{ item.filename }}"
+    dest: "{{ certs_target_folder }}/{{ item.filename }}"
     mode: "{{ item.mode }}"
   loop: "{{ cert_info }}"
-   #- filename: fullchain.pem
-   #  mode: '0640'
-   #- filename: privkey.pem
-   #  mode: '0400'
   tags:
     - certupdate
 
-# while a handler exists, it's not called out here as yet since this could be part of a larger playbook
+# while a handler exists, it's not called out here since this could be part of a larger playbook

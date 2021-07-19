@@ -1,7 +1,7 @@
 ---
-#NOTE: adjust revproxy to reflect your choice of role name; if something other than nginx is used, override it too
-src_folder: roles/revproxy/files/certs
-dest_folder: /etc/ssl/nginx/certs
+#NOTE: set to reflect your choice of role name/; if something other than nginx is used, override it too
+certs_local_folder: roles/revproxy/files/certs
+certs_target_folder: /etc/ssl/nginx/certs
 cert_info:
   - filename: fullchain.pem
     mode: '0640'
